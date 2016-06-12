@@ -1,0 +1,14 @@
+{
+  "name": "chat-app",
+  "description": "A chat app.",
+  "main": "app.js",
+  "authors": [
+    "John Pettigrew <john.pettigrew404@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.0.0"
+  }
+}
