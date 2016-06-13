@@ -15,9 +15,9 @@ function messageHandler(io){
       console.log('Disconnect ', e);
     }
 
-    function socketMessage(msg){
-      console.log('New message: ', msg);
-      io.emit('message', msg)
+    function socketMessage(text){
+      console.log('New message: ', text);
+      io.emit('message', {text: text, date: new Date()})
     }
   }
 }

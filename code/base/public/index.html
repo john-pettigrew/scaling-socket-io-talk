@@ -1,15 +1,35 @@
 <html>
   <head>
     <title>Chat App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/public/bower_components/skeleton/css/normalize.css">
+    <link rel="stylesheet" href="/public/bower_components/skeleton/css/skeleton.css">
+    <link rel="stylesheet" href="/public/css/custom.css">
   </head>
   <body>
-    <form>
-      <input id="chat-input" type="text"></input>
-      <button id="chat-send" type="Button">Send</button>
-    </form> 
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <ul id="chat-list"></ul>
+        </div>
+      </div>
+
+      <div id="chat-container">
+        <div class="row">
+          <div class="eight columns">
+            <input id="chat-input" class="u-full-width" type="text"></input>
+          </div>
+          <div class="four columns">
+            <button id="chat-send" type="Button" class="button-primary">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/public/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/public/bower_components/moment/min/moment.min.js"></script>
     <script src="/public/js/communication.js"></script>
   </body>
 </html>

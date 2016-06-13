@@ -3,7 +3,7 @@
     
     var messageInput = '#chat-input';
     var messageSubmit = '#chat-send';
-    var messageList = '';
+    var messageList = '#chat-list';
 
     var socket = io();
 
@@ -23,12 +23,16 @@
     socket.on('message', displayMessage);
 
     function sendMessage(msg){
-      console.log('will later send this message2:', msg);  
       socket.emit('message', msg)
     }
 
     function displayMessage(msg){
       console.log('will later display this message: ', msg)
+      $(messageList).append(getMessageHTML(msg))
+    }
+
+    function getMessageHTML(msg){
+      return '<li><strong>' + msg.text + '</strong>&nbsp;<i class=\"msg-date\">'+ moment(new Date(msg.date)).format('MMMM Do YYYY, h:mm:ss a') + '</i>' +  '</li>' 
     }
   }
 )();
