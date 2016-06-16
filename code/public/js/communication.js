@@ -27,12 +27,11 @@
     }
 
     function displayMessage(msg){
-      console.log('will later display this message: ', msg)
       $(messageList).append(getMessageHTML(msg))
     }
 
     function getMessageHTML(msg){
-      return '<li><strong>' + msg.text + '</strong>&nbsp;<i class=\"msg-date\">'+ moment(new Date(msg.date)).format('MMMM Do YYYY, h:mm:ss a') + '</i>' +  '</li>' 
+      return '<li class="chat-message"><strong>' + msg.text + '</strong>&nbsp;<i class=\"msg-date\">'+ moment(new Date(msg.date)).format('MMMM Do YYYY, h:mm:ss a') + '</i>' +  '</li>' 
     }
   }
 )();

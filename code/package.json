@@ -8,6 +8,7 @@
   },
   "author": "John Pettigrew <john.pettigrew404@gmail.com>",
   "dependencies": {
+    "amqplib": "^0.4.2",
     "express": "^4.13.4",
     "socket.io": "^1.4.6"
   }
