@@ -4,13 +4,11 @@ module.exports = rabbitMQMessages;
 
 function rabbitMQMessages(address, callback){
   //connect to RabbitMQ
-  console.log('a');
   amqp.connect(address, function amqpConnectCallback(err, conn){
     if(err){
       return callback(err);  
     }
     
-  console.log('b');
     //create a channel
     conn.createChannel(function(err, ch){
       if(err){
@@ -18,7 +16,6 @@ function rabbitMQMessages(address, callback){
       } 
 
 
-  console.log('c');
       ch.assertExchange('messages', 'fanout', {durable: false});
 
       //setup a queue for receiving messages
@@ -27,7 +24,6 @@ function rabbitMQMessages(address, callback){
           return callback(err);  
         } 
 
-  console.log('d');
 
         ch.bindQueue(q.queue, 'messages', '');
 
@@ -38,7 +34,6 @@ function rabbitMQMessages(address, callback){
 
         //listen for messages
         ch.consume(q.queue, function(msg){
-          console.log('e2')
           options.onMessageReceived(JSON.parse(msg.content.toString())); 
         }, {noAck: true});
 
@@ -46,7 +41,6 @@ function rabbitMQMessages(address, callback){
 
         function emitMessage(message){
 
-          console.log('e1')
           ch.publish('messages', '', new Buffer(JSON.stringify(message))); 
         }
 
