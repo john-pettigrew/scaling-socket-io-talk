@@ -1,0 +1,26 @@
+Scaling A Websocket Application with RabbitMQ
+
+John Pettigrew
+http://john.pettigrew.rocks/
+@johnbpettigrew
+
+Socket.io - "enables real-time bidirectional event-based communication"
+
+demo
+
+RabbitMQ - Message queue.
+
+@rabbitmq_models.png
+
+Message Flow
+producer -> exchange -> queue -> consumer
+
+demo
+
+Slides & code are on Github. Also blog post.
+
+end
+
+John Pettigrew
+http://john.pettigrew.rocks/
+@johnbpettigrew
