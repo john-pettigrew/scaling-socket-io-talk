@@ -3,13 +3,13 @@ var rabbitMQHandler = require('./rabbitMQ_messaging');
 module.exports = messageHandler;
 
 function messageHandler(io){
-  rabbitMQHandler('amqp://localhost', function(err, options){
+  // rabbitMQHandler('amqp://localhost', function(err, options){
     
-    if(err){
-      throw err;  
-    }
+  //   if(err){
+  //     throw err;  
+  //   }
 
-    options.onMessageReceived = onMessageReceived;
+    // options.onMessageReceived = onMessageReceived;
 
     io.on('connection', websocketConnect);
 
@@ -26,8 +26,8 @@ function messageHandler(io){
 
       function socketMessage(text){
         var message =  {text: text, date: new Date()};
-        // io.emit('message', message)
-        options.emitMessage(message);
+        io.emit('message', message)
+        // options.emitMessage(message);
       }
     }
 
@@ -36,5 +36,5 @@ function messageHandler(io){
       io.emit('message', message)
     }
 
-  });
+  // });
 }
